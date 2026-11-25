@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RaahAI · Station feed</title>
+<style>
+body{background:#f7f5ef;color:#24382f;font:16px system-ui;margin:0}main{max-width:980px;margin:auto;padding:32px 20px}
+h1{font:2.6rem Georgia,serif;margin:0}p{line-height:1.5}.scroll{overflow:auto}
+table{width:100%;border-collapse:collapse;background:white}th,td{text-align:left;padding:10px;border-bottom:1px solid #ddd;white-space:nowrap}
+th{background:#223b32;color:white}td{font-variant-numeric:tabular-nums}a{color:#84512b}
+</style></head><body><main><h1>Station observation feed</h1>
+<p id="journey">Connecting to the recorded journey…</p><p id="status" role="status"></p>
+<div class="scroll"><table><thead><tr><th>Event</th><th>Station</th><th>Observation</th><th>Scheduled (IST)</th><th>Actual (IST)</th><th>Delay</th></tr></thead><tbody id="events"></tbody></table></div>
+<p><a href="/api/events">Published events as JSON</a></p></main>
+<script>
+let cursor = 0;
+const clock = stamp => stamp ? stamp.slice(0,16).replace("T"," ") : "—";
+async function poll() {
+  try {
+    const response = await fetch("/api/events?after=" + cursor);
+    if (!response.ok) throw new Error("Feed unavailable");
+    const batch = await response.json();
+    document.querySelector("#journey").textContent =
+      "Train " + batch.train_no + " · " + batch.journey_date + " · " + batch.split + " data · " + batch.speed + "× base speed"
+      + (batch.max_gap_seconds > 0 ? " · " + batch.max_gap_seconds + "s max gap" : "");
+    for (const event of batch.events) {
+      const row = document.querySelector("#events").insertRow();
+      for (const value of [event.id,event.station,event.type,clock(event.scheduled_at),clock(event.actual_at),
+           event.delay_min == null ? "—" : event.delay_min + " min"]) row.insertCell().textContent = value;
+    }
+    cursor = batch.cursor;
+    document.querySelector("#status").textContent = batch.complete ? "Journey complete" : "Receiving recorded observations";
+    if (batch.complete) return;
+  } catch {
+    document.querySelector("#status").textContent = "Connection interrupted. Retrying…";
+  }
+  setTimeout(poll, 1000);
+}
+poll();
+</script></body></html>

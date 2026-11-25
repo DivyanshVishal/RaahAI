@@ -1,0 +1,14 @@
+-r requirements.txt
+
+# Notebook execution and plots
+ipykernel>=6.29,<8
+nbclient>=0.10,<0.12
+matplotlib>=3.10,<3.11
+
+# Benchmark models, tested with the project's Python 3.10 environment
+numpy>=1.24,<3
+scikit-learn==1.7.2
+lightgbm==4.7.0
+xgboost==3.2.0
+catboost==1.2.10
+threadpoolctl>=3.5,<4

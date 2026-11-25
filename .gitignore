@@ -1,0 +1,48 @@
+# Local Python environments and caches
+/env/
+/.venv/
+/venv/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.pytest_cache/
+
+# Local configuration and credentials
+.env
+.env.*
+!.env.example
+!.env.*.example
+*.pem
+*.key
+.vscode/
+
+# Dependencies and builds
+node_modules/
+.next/
+out/
+dist/
+coverage/
+*.tsbuildinfo
+
+# Local data, models, and generated output
+/ETADataset/
+/processed/
+/models/
+/dataset_audit/
+/.notebook-work/
+/.report-work/
+/.september-eval/
+*.parquet
+*.log
+/sim_log.jsonl
+/sim_outbox.jsonl
+/*_report.txt
+/journey_checks.txt
+/comms.txt
+/condacomm.txt
+/docs/*.docx
+
+# OS metadata
+.DS_Store
+Thumbs.db
+/data_profile_report_*.txt

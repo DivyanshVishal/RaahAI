@@ -1,0 +1,405 @@
+
+==============================================================================
+1. OVERVIEW
+==============================================================================
+Source: processed/gps_data/year=2026
+Rows on disk: 28,301,499
+Rows analysed: 1,992,795 (SAMPLE)
+Files loaded: 12899/12899 
+Columns: 24
+!! NOTE: dataset exceeded MAX_ROWS_IN_MEMORY=2,000,000. Counts below reflect a random sample of whole journeys (date + train_no), not the full dataset. Raise --max-rows if you need exact totals.
+Expected columns missing: none
+Unexpected extra columns: none
+Columns with leading/trailing whitespace: none
+
+==============================================================================
+2. MISSING VALUES (true nulls + empty strings + null-like text)
+==============================================================================
+true_null = None/NaN stored in the files. For station_code, train_no and train_name,
+text such as 'NIL' or 'NAT' may be a real code, so it is listed but NOT counted as missing.
+                     true_null  missing_total  missing_%                        null_like_text
+column                                                                                        
+date                         0              0       0.00                                     -
+train_no                     0              0       0.00                                     -
+train_name                   0              0       0.00                                     -
+train_type                   0              0       0.00                                     -
+seq                          0              0       0.00                                     -
+station_code                 0              0       0.00  NOT COUNTED: nat:224, nil:95, nan:65
+halts_here                   0              0       0.00                                     -
+sch_arrival                  0              0       0.00                                     -
+sch_arrival_date             0              0       0.00                                     -
+sch_departure                0              0       0.00                                     -
+sch_departure_date           0              0       0.00                                     -
+act_arrival                  0              0       0.00                                     -
+act_arrival_date             0              0       0.00                                     -
+act_departure           377481         377481      18.94                                     -
+act_departure_date      377481         377481      18.94                                     -
+delay_arrival_min       383181         383181      19.23                                     -
+delay_departure_min     479096         479096      24.04                                     -
+platform                 92967          92967       4.67                                     -
+distance_km                  0              0       0.00                                     -
+lat                          0              0       0.00                                     -
+lng                          0              0       0.00                                     -
+departed                     0              0       0.00                                     -
+reported                     0              0       0.00                                     -
+reported_at               4912           4912       0.25                                     -
+
+==============================================================================
+3. CARDINALITY AND TOP VALUES
+==============================================================================
+date                   unique=244      top: '2026-08-29':9763, '2026-08-17':9405, '2026-07-24':9402, '2026-08-24':9248, '2026-07-09':9201
+train_no               unique=12899    top: '13151':1440, '13032':1403, '14030':1391, '13553':1366, '13152':1349
+train_name             unique=6638     top: 'Chhatrapati Shivaji Maharaj Terminus Mumbai EMU':52167, 'Panvel Mumbai EMU':22648, 'Churchgate Mumbai EMU':21061, 'Virar Mumbai EMU':12810, 'Chennai 
+train_type             unique=24       top: 'EMU':921223, 'MEX':563223, 'PAS':238329, 'SUF':199517, 'SUB':17070
+seq                    unique=669      top: '0.0':73708, '6.0':69645, '7.0':69230, '8.0':68316, '9.0':66339
+station_code           unique=8496     top: 'CLA':8280, 'TNA':8119, 'BA':6595, 'GC':5686, 'ADH':5684
+halts_here             unique=2        top: '1':1992778, '0':17
+sch_arrival            unique=1440     top: '18:00':3567, '19:00':3561, '07:00':3185, '07:50':3067, '18:30':3059
+sch_arrival_date       unique=244      top: '25 Aug 2026':9526, '12 Aug 2026':9209, '17 Aug 2026':9147, '24 Aug 2026':9065, '29 Aug 2026':9045
+sch_departure          unique=1440     top: '08:00':4509, '18:00':4381, '08:20':4359, '07:30':4346, '18:40':4321
+sch_departure_date     unique=244      top: '25 Aug 2026':9527, '12 Aug 2026':9212, '17 Aug 2026':9145, '24 Aug 2026':9059, '29 Aug 2026':9043
+act_arrival            unique=1440     top: '07:50':2195, '08:01':2171, '08:00':2157, '07:40':2142, '08:40':2140
+act_arrival_date       unique=244      top: '25 Aug 2026':9523, '12 Aug 2026':9253, '17 Aug 2026':9044, '24 Aug 2026':9043, '29 Aug 2026':9009
+act_departure          unique=1441     top: '':377481, '08:21':1773, '08:44':1771, '08:07':1769, '07:47':1763
+act_departure_date     unique=245      top: '':377481, '25 Aug 2026':7745, '12 Aug 2026':7578, '21 Jun 2026':7470, '02 Aug 2026':7462
+delay_arrival_min      unique=1268     top: '':383181, '3.0':73493, '4.0':73013, '2.0':71407, '5.0':70273
+delay_departure_min    unique=1222     top: '':479096, '4.0':58432, '5.0':57111, '3.0':56608, '6.0':54799
+platform               unique=74       top: '1.0':627471, '2.0':319252, '1':269072, '3.0':207934, '2':172776
+distance_km            unique=547792   top: '0.0':25751, '2.4':251, '17.8':241, '31.9':216, '0.068':184
+lat                    unique=861788   top: '22.58382':678, '19.19528':494, '28.64177':463, '19.186157':442, '19.21089':375
+lng                    unique=853613   top: '88.34221':686, '72.9967':494, '77.22027':463, '72.976186':441, '73.07729':375
+departed               unique=2        top: '1':1613802, '0':378993
+reported               unique=2        top: '1':1987883, '0':4912
+reported_at            unique=1956430  top: '':4912, '2026-06-07T19:52:06.821968+05:30':17, '2026-07-16T23:31:21.772172+05:30':16, '2026-04-25T08:38:00.775531+05:30':14, '2026-01-16T21:01:35.734
+
+==============================================================================
+4. FORMAT PATTERNS OF DATE / TIME / PLATFORM COLUMNS (9=digit, A=letter)
+==============================================================================
+
+date: 1 distinct patterns
+   9999-99-99                    1,992,795   e.g. '2026-01-25'
+
+sch_arrival_date: 1 distinct patterns
+   99 AAA 9999                   1,992,795   e.g. '26 Jan 2026'
+
+sch_departure_date: 1 distinct patterns
+   99 AAA 9999                   1,992,795   e.g. '26 Jan 2026'
+
+act_arrival_date: 1 distinct patterns
+   99 AAA 9999                   1,992,795   e.g. '26 Jan 2026'
+
+act_departure_date: 2 distinct patterns
+   99 AAA 9999                   1,615,314   e.g. '26 Jan 2026'
+   <empty>                         377,481   e.g. ''
+
+sch_arrival: 1 distinct patterns
+   99:99                         1,992,795   e.g. '10:45'
+
+sch_departure: 1 distinct patterns
+   99:99                         1,992,795   e.g. '10:45'
+
+act_arrival: 1 distinct patterns
+   99:99                         1,992,795   e.g. '22:32'
+
+act_departure: 2 distinct patterns
+   99:99                         1,615,314   e.g. '22:32'
+   <empty>                         377,481   e.g. ''
+
+reported_at: 3 distinct patterns
+   9999-99-99A99:99:99.999999+99:99  1,987,836   e.g. '2026-01-26T22:32:49.412850+05:30'
+   <empty>                           4,912   e.g. ''
+   9999-99-99A99:99:99+99:99            47   e.g. '2026-06-06T10:06:31+05:30'
+
+platform: 7 distinct patterns
+   9.9                           1,286,965   e.g. '1.0'
+   9                               598,836   e.g. '1'
+   <empty>                          92,967   e.g. ''
+   9A                                6,838   e.g. '2A'
+   99.9                              4,774   e.g. '13.0'
+   99                                2,414   e.g. '14'
+   AAA                                   1   e.g. 'EMU'
+
+train_no: 4 distinct patterns
+   99999                         1,969,504   e.g. '10103'
+   9999                             22,651   e.g. '1023'
+   999999                              632   e.g. '150131'
+   999                                   8   e.g. '461'
+
+seq: 3 distinct patterns
+   99.9                          1,168,443   e.g. '10.0'
+   9.9                             622,026   e.g. '0.0'
+   999.9                           202,326   e.g. '121.0'
+
+station_code: 4 distinct patterns
+   AAA                           1,268,389   e.g. 'NZM'
+   AAAA                            579,815   e.g. 'BDGM'
+   AA                              141,097   e.g. 'RU'
+   A                                 3,494   e.g. 'G'
+
+==============================================================================
+5. FLAG COLUMNS
+==============================================================================
+
+halts_here: raw values
+              count
+halts_here         
+1           1992778
+0                17
+
+departed: raw values
+            count
+departed         
+1         1613802
+0          378993
+
+reported: raw values
+            count
+reported         
+1         1987883
+0            4912
+
+==============================================================================
+6. NUMERIC COLUMNS
+==============================================================================
+
+seq: non-numeric values = 0
+   count    1992795.0 | mean         38.09 | std          60.45 | min            0.0 | 1%             0.0 | 5%             1.0 | 50%           16.0 | 95%          167.0 | 99%          299.0 | max          716.0
+   negatives=0  zeros=73,708  non-integer=0
+
+delay_arrival_min: non-numeric values = 0
+   count    1609614.0 | mean         35.61 | std          60.56 | min            2.0 | 1%             2.0 | 5%             3.0 | 50%           17.0 | 95%          128.0 | 99%          284.0 | max         2042.0
+   negatives=0  zeros=0  non-integer=0
+
+delay_departure_min: non-numeric values = 0
+   count    1513699.0 | mean         37.91 | std          60.57 | min          -27.0 | 1%             2.0 | 5%             3.0 | 50%           19.0 | 95%          132.0 | 99%          284.0 | max         2044.0
+   negatives=1  zeros=1,470  non-integer=0
+
+distance_km: non-numeric values = 0
+   count    1992795.0 | mean        215.57 | std         375.44 | min            0.0 | 1%             0.0 | 5%            4.77 | 50%          67.98 | 95%        1021.04 | 99%        1842.57 | max        4154.38
+   negatives=0  zeros=25,751  non-integer=1,962,529
+
+lat: non-numeric values = 0
+   count    1992795.0 | mean         21.66 | std           5.22 | min           8.09 | 1%            9.18 | 5%           11.75 | 50%          22.68 | 95%          29.09 | 99%          31.17 | max          34.26
+   negatives=0  zeros=0  non-integer=1,992,779
+
+lng: non-numeric values = 0
+   count    1992795.0 | mean         80.69 | std           5.63 | min          68.97 | 1%           72.13 | 5%           72.85 | 50%          79.94 | 95%          88.46 | 99%          91.86 | max          95.74
+   negatives=0  zeros=0  non-integer=1,992,795
+
+==============================================================================
+7. DATE / DATETIME PARSING
+==============================================================================
+'date' parse rate  dayfirst=True: 100.00%   dayfirst=False: 100.00%   rows where the two disagree: 0
+Chosen dayfirst = False (override with --dayfirst yes/no if wrong)
+date: parsed 100.00%  range 2026-01-01 00:00:00 -> 2026-09-01 00:00:00
+sch_arrival    raw time present= 1,992,795  parsed= 1,992,795  failed=0
+sch_departure  raw time present= 1,992,795  parsed= 1,992,795  failed=0
+act_arrival    raw time present= 1,992,795  parsed= 1,992,795  failed=0
+act_departure  raw time present= 1,615,314  parsed= 1,615,314  failed=0
+reported_at    parsed=99.75%  range 2026-01-01 00:10:25.071007 -> 2026-09-01 11:38:08.525453  (converted to Asia/Kolkata)
+
+==============================================================================
+8. DOES THE GIVEN DELAY MATCH (actual - scheduled)?
+==============================================================================
+
+arrival: rows with both computed and given delay = 1,609,614
+   given delay but no computable actual/scheduled = 0
+   computable but given delay missing             = 383,181
+   |diff| <= 1 min: 100.00%
+   diff close to +/-1440 min (date rollover issue): 0
+   diff distribution: count    1609614.0 | mean          -0.0 | std            0.2 | min         -105.0 | 25%            0.0 | 50%            0.0 | 75%            0.0 | max           69.0
+   largest mismatches:
+               date train_no   seq station_code sch_arrival_date sch_arrival act_arrival_date act_arrival delay_arrival_min  computed
+1323039  2026-05-01    55524  22.0         KMHN      01 May 2026       11:08      01 May 2026       11:59             156.0      51.0
+1323151  2026-08-26    55524  22.0         KMHN      26 Aug 2026       11:08      26 Aug 2026       11:31             128.0      23.0
+1518586  2026-02-16    63520  13.0          KSX      16 Feb 2026       05:13      16 Feb 2026       05:19              78.0       6.0
+1518900  2026-07-04    63520  13.0          KSX      04 Jul 2026       05:13      04 Jul 2026       05:20              79.0       7.0
+1350966  2026-03-17    56529   5.0          AVC      17 Mar 2026       06:06      17 Mar 2026       07:40              25.0      94.0
+
+departure: rows with both computed and given delay = 1,513,699
+   given delay but no computable actual/scheduled = 0
+   computable but given delay missing             = 101,615
+   |diff| <= 1 min: 99.91%
+   diff close to +/-1440 min (date rollover issue): 1
+   diff distribution: count    1513699.0 | mean           0.0 | std            3.8 | min         -176.0 | 25%            0.0 | 50%            0.0 | 75%            0.0 | max         1440.0
+   largest mismatches:
+              date train_no    seq station_code sch_departure_date sch_departure act_departure_date act_departure delay_departure_min  computed
+626630  2026-03-31    18478  358.0         PURI        02 Apr 2026         03:25        03 Apr 2026         03:25                 0.0    1440.0
+3020    2026-04-23     1450  250.0          HDP        24 Apr 2026         18:15        25 Apr 2026         11:09                 0.0    1014.0
+3129    2026-07-17     1450  250.0          HDP        18 Jul 2026         18:15        19 Jul 2026         09:15                 0.0     900.0
+788922  2026-01-04    22861  126.0          KBJ        04 Jan 2026         20:35        05 Jan 2026         09:26                 0.0     771.0
+0       2026-01-25      461  121.0         BDGM        26 Jan 2026         10:45        26 Jan 2026         22:32                 0.0     707.0
+
+==============================================================================
+9. DUPLICATES
+==============================================================================
+Fully identical rows: 0
+Rows sharing ['date', 'train_no', 'seq']: 0
+Rows sharing ['date', 'train_no', 'station_code']: 0
+
+==============================================================================
+10. JOURNEY STRUCTURE (journey = date + train_no)
+==============================================================================
+Journeys: 150,680  | stops per journey: count    150680.0 | mean         13.2 | std          11.4 | min           1.0 | 25%           5.0 | 50%          10.0 | 75%          19.0 | max         116.0
+Starting seq values: {np.float64(0.0): 73708, np.float64(2.0): 12238, np.float64(3.0): 11733, np.float64(1.0): 9738, np.float64(4.0): 7858}
+Journeys with repeated seq: 0
+Journeys with gaps in seq: 114,949
+                     min    max  count  nunique
+date       train_no                            
+2026-01-01 1027      0.0  253.0     17       17
+           11079     0.0  261.0     27       27
+           11116     3.0   38.0     24       24
+           11272     0.0   88.0     39       39
+           11413     0.0   62.0     41       41
+
+Share of rows with missing value, by stop position:
+        sch_arrival  sch_departure  act_arrival  act_departure  delay_arrival_min  delay_departure_min
+_pos                                                                                                  
+first           0.0            0.0          0.0          0.489              0.491                0.537
+last            0.0            0.0          0.0          0.278              0.186                0.325
+middle          0.0            0.0          0.0          0.156              0.166                0.207
+
+Distance decreasing along seq: 4 rows | distance unchanged between stops: 0 rows
+Distance at first stop (should be 0?): {np.float64(0.0): 25751, np.float64(0.01): 184, np.float64(0.068): 184, np.float64(2.4): 182, np.float64(0.038): 181}
+sch: departure before arrival at same station = 0 | next station arrival before this departure = 3
+   sch dwell minutes: count    1992795.0 | mean           1.8 | std            2.8 | min            0.0 | 50%            1.0 | 95%            5.0 | 99%           10.0 | max         1345.0
+   halts_here vs scheduled dwell > 0:
+col_0       dwell=0  dwell>0
+halts_here                  
+False            17        0
+True         253093  1739685
+act: departure before arrival at same station = 0 | next station arrival before this departure = 2
+   act dwell minutes: count    1615314.0 | mean           5.1 | std            7.9 | min            0.0 | 50%            3.0 | 95%           18.0 | 99%           39.0 | max          628.0
+
+Origin scheduled departure date minus 'date' (days): {0: 150044, 1: 614, 2: 21, 3: 1}
+
+Trains whose stop list varies across dates: 11,118 of 12,899
+          distinct_routes
+train_no                 
+38903                  17
+38910                  17
+38907                  17
+96502                  17
+96504                  17
+
+==============================================================================
+11. ENTITY CONSISTENCY
+==============================================================================
+train_no with >1 train_name: 86
+                                                         rows
+train_no train_name                                          
+1027     DR GORAKHPUR SPL                                 155
+         Dadar Central - Gorakhpur Special Fare Special    71
+11265    JBP ABKP EXPRESS                                 182
+         MML ABKP EXP                                      37
+12021    BBN JANSHATABDI                                  113
+         Barabil BBN JANSHATABDI                           14
+12022    HWH JANSHATABDI                                  145
+         Howrah HWH JANSHATABDI                            10
+12109    Manmad Jn. PANCHAVATI EXP                        137
+         PANCHAVATI EXP                                     9
+train_no with >1 train_type: 75
+                       rows
+train_no train_type        
+1023     MAIL/EXPRESS    38
+         TOD            283
+1027     MAIL/EXPRESS    71
+         TOD            155
+1149     MEX              5
+         TOD             17
+1449     MAIL/EXPRESS    14
+         TOD            192
+1450     MAIL/EXPRESS    15
+         TOD            187
+Stations: 8,496
+Lat range 8.08785 .. 34.25783 | Lng range 68.969675 .. 95.7384
+Rows with lat/lng missing: 0 | exactly 0: 0
+Stations with more than one coordinate pair: 8,445
+              coord_pairs
+station_code             
+TNA                   530
+CLA                   476
+BYR                   451
+DDJ                   440
+MIRA                  400
+Stations never having coordinates: 0  e.g. []
+Rows with missing station_code: 0
+station_code values that look like nulls (check whether they are real codes):
+              rows  distinct_coords  trains example_lat example_lng
+station_code                                                       
+NAN             65               43       5   16.379223   73.730139
+NAT            224              140      17   25.236783   86.936751
+NIL             95               60       9   11.278025    76.25452
+
+==============================================================================
+12. DELAY DISTRIBUTION
+==============================================================================
+
+delay_arrival_min: p0=2.0 | p1=2.0 | p5=3.0 | p25=7.0 | p50=17.0 | p75=39.0 | p95=128.0 | p99=284.0 | p99.9=677.4 | p100=2042.0
+   < -30: 0   > 300: 14,107   > 720: 1,285   > 1440: 94
+   median by train_type:
+                count  median   mean
+train_type                          
+EMU            730410    11.0   24.0
+MEX            463400    23.0   43.7
+PAS            194372    22.0   39.3
+SUF            163152    22.0   48.7
+SUB             14939    14.0   18.6
+TOD             10109    75.0  177.9
+RAJ              8610    22.0   41.3
+JSH              6798    16.0   30.2
+MAIL/EXPRESS     6608    44.0  113.0
+GBR              3130    24.0   53.1
+SHT              2789    12.0   23.9
+MEMU             1341    25.0   36.7
+DRNT             1137    24.0   69.5
+SUPERFAST        1104    39.0   95.0
+EMU - KOLKATA     771    13.0   17.3
+
+delay_departure_min: p0=-27.0 | p1=2.0 | p5=3.0 | p25=8.0 | p50=19.0 | p75=43.0 | p95=132.0 | p99=284.0 | p99.9=671.0 | p100=2044.0
+   < -30: 0   > 300: 13,223   > 720: 1,170   > 1440: 86
+   median by train_type:
+                count  median   mean
+train_type                          
+EMU            597490    14.0   28.2
+MEX            492250    24.0   42.8
+PAS            204338    23.0   39.9
+SUF            168114    22.0   46.3
+TOD              9855    63.0  163.8
+RAJ              8522    24.0   42.5
+SUB              7498    17.0   21.6
+JSH              7458    17.0   30.0
+MAIL/EXPRESS     6766    39.0  103.8
+GBR              3225    24.0   51.2
+SHT              3044    12.0   22.5
+MEMU             1323    24.0   36.3
+SUPERFAST        1123    35.0   85.0
+DRNT             1050    22.0   60.2
+EMU - KOLKATA     754    14.0   18.5
+
+==============================================================================
+13. FLAGS vs ACTUAL TIMES
+==============================================================================
+reported vs act_arrival present:
+act_arrival_present     True
+reported                    
+0                       4912
+1                    1987883
+departed vs act_departure present:
+act_departure_present   False    True 
+departed                              
+0                      377481     1512
+1                           0  1613802
+reported_at minus act_arrival (minutes): count    1987883.0 | mean           3.0 | std            7.7 | min          -71.5 | 5%             0.2 | 50%            1.1 | 95%            9.9 | max          809.7
+   reported before the train actually arrived: 118
+
+==============================================================================
+14. COVERAGE OVER TIME
+==============================================================================
+Days in range: 244 | days with data: 244 | missing days: 0  e.g. []
+Rows per day: count     244.0 | mean     8167.2 | std       640.4 | min      2453.0 | 25%      7803.8 | 50%      8194.5 | 75%      8595.0 | max      9763.0
+Trains: 12,899 | journeys per train: count    12899.0 | mean        11.7 | std          5.9 | min          1.0 | 25%          6.0 | 50%         15.0 | 75%         17.0 | max         17.0
+
+==============================================================================
+END OF REPORT
+==============================================================================
